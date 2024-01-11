@@ -8,3 +8,4 @@
 Gemfile.lock
 tmp/
 
+db/quiz.db
