@@ -1,0 +1,15 @@
+<div class="quiz-form">
+  <form>
+    <div class="quiz-form-header"></div>
+    <div class="quiz-form-main">
+      <% @questions.each do |q| %>
+        <%= erb :multiple_choice_question, locals: { question: q } %>
+      <% end %>
+    </div>
+
+    <div class="quiz-form-footer">
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </form>
+</div>
+<script src="/javascript/script.js"></script>

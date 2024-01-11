@@ -1,0 +1,11 @@
+<div class="input-block active">
+  <div class="label"><%= question.question %></div>
+  <div class="input-control">
+    <% letters = ("A".."Z").to_a %>
+    <% question.answers.each_with_index do |answer, index| %>
+      <% id = "q#{question.id}-a#{index}" %>
+      <input id="<%= id %>" class="toggle toggle-left" name="q<%= question.id %>" value="yes" type="radio">
+      <label for="<%= id %>" class="btn"><span><%= letters[index] %></span> <%= answer %></label>
+    <% end %>
+  </div>
+</div>
