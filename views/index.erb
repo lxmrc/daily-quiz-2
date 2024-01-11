@@ -3,7 +3,7 @@
     <div class="quiz-form-header"></div>
     <div class="quiz-form-main">
       <% @questions.each do |q| %>
-        <%= erb :multiple_choice_question, locals: { question: q } %>
+        <%= erb :question, locals: { question: q } %>
       <% end %>
     </div>
 
