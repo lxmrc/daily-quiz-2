@@ -1,6 +1,6 @@
 {
   "install": "bundle update; bundle install",
-  "start": "bundler exec rackup -p $PORT",
+  "start": "bundler exec ruby app.rb",
   "watch": {
     "install": {
       "include": ["^glitch\\.json$", "^Gemfile", "^\\.env$"],
