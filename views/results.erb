@@ -4,25 +4,59 @@
     <meta charset="UTF-8">
     <title>Quiz Results</title>
     <style>
-        .correct { color: green; }
-        .incorrect { color: red; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fff;
+            color: #000;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .result-item {
+            border: 2px solid #CCC;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 3px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .result-item p {
+            font-size: 1.1em;
+            line-height: 30px;
+        }
+        .quiz-results {
+            opacity: 1;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Quiz Results</h1>
-    <p>Total Questions: <%= @results[:total] %></p>
-    <p>Score: <%= @results[:score] %></p>
-    
-    <h2>Detailed Results</h2>
-    <ul>
-        <% @results[:results].each do |result| %>
-            <li class="<%= result[:correct] ? 'correct' : 'incorrect' %>">
-                Question: <%= result[:question] %><br>
-                Your Answer: <%= result[:guess] %><br>
-                Correct Answer: <%= result[:answer] %><br>
-                Correct: <%= result[:correct] ? 'Yes' : 'No' %>
-            </li>
-        <% end %>
-    </ul>
+    <div class="quiz-form">
+        <h1>Quiz Results</h1>
+        <p class="score">Score: <%= @results[:score] %> / <%= @results[:total] %></p>
+        
+        <div class="quiz-results">
+            <% @results[:results].each do |result| %>
+                <div class="result-item <%= result[:correct] ? 'correct' : 'incorrect' %>">
+                    <p><%= result[:question] %></p>
+
+                    <% if result[:correct] %>
+                      <p><%= result[:guess] %></p>
+                    <% else %>
+                      <p style="text-decoration: line-through;"><%= result[:guess] %></p>
+                      <p><%= result[:answer] %></p>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </body>
 </html>
