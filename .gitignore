@@ -9,3 +9,4 @@ Gemfile.lock
 tmp/
 
 db/quiz.db
+db/quiz.db-*
