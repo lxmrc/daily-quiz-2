@@ -7,5 +7,5 @@ class Question < ActiveRecord::Base
 end
 
 get '/' do
-  Question.first.question
+  Question.all.map(&:question).join("\n")
 end
