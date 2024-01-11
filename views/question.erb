@@ -2,10 +2,10 @@
   <div class="label"><%= question.question %></div>
   <div class="input-control">
     <% letters = ("A".."Z").to_a %>
-    <% question.answers.each_with_index do |answer, index| %>
-      <% id = "q#{question.id}-a#{index}" %>
-      <input id="<%= id %>" class="toggle toggle-left" name="q<%= question.id %>" value="yes" type="radio">
-      <label for="<%= id %>" class="btn"><span><%= letters[index] %></span> <%= answer %></label>
+    <% question.answers.each_with_index do |answer, answer_no| %>
+      <% id = "q#{question_no}-a#{answer_no}" %>
+      <input id="<%= id %>" class="toggle toggle-left" name="<%= question_no %>" value="<%= ERB::Util.html_escape(answer) %>" type="radio">
+      <label for="<%= id %>" class="btn"><span><%= letters[answer_no] %></span> <%= answer %></label>
     <% end %>
   </div>
 </div>

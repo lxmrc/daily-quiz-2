@@ -8,7 +8,7 @@ function typeForm(form) {
     this.scrollListener();
     this.inputListener();
     this.clickListener();
-    this.submitListener();
+    // this.submitListener();
   };
 
   this.scrollListener = function () {

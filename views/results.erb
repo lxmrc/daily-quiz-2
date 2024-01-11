@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Results</title>
+    <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+    <p>Total Questions: <%= @results[:total] %></p>
+    <p>Score: <%= @results[:score] %></p>
+    
+    <h2>Detailed Results</h2>
+    <ul>
+        <% @results[:results].each do |result| %>
+            <li class="<%= result[:correct] ? 'correct' : 'incorrect' %>">
+                Question: <%= result[:question] %><br>
+                Your Answer: <%= result[:guess] %><br>
+                Correct Answer: <%= result[:answer] %><br>
+                Correct: <%= result[:correct] ? 'Yes' : 'No' %>
+            </li>
+        <% end %>
+    </ul>
+</body>
+</html>

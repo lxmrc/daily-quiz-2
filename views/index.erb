@@ -1,9 +1,9 @@
 <div class="quiz-form">
-  <form>
+  <form action="/submit" method="post">
     <div class="quiz-form-header"></div>
     <div class="quiz-form-main">
-      <% @questions.each do |q| %>
-        <%= erb :question, locals: { question: q } %>
+      <% @questions.each_with_index do |q, i| %>
+        <%= erb :question, locals: { question_no: i, question: q } %>
       <% end %>
     </div>
 
